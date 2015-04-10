@@ -42,6 +42,7 @@ INSTALLED_APPS = (
     'rest_framework',
     'category',
     'recipe',
+    'submitter',
 )
 
 MIDDLEWARE_CLASSES = (
