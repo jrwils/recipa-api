@@ -26,4 +26,4 @@ class Submitter(models.Model):
     city = models.ForeignKey('City', db_column='cityid')
 
     def __str__(self):
-        return self.firstname, self.lastname
+        return self.firstname + ' ' + self.lastname
