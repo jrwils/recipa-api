@@ -8,7 +8,7 @@ class Recipe(models.Model):
     ingredients = models.TextField()
     instructions = models.TextField()
     endcomments = models.TextField(blank=True)
-    url = models.CharField(max_length=40)
+    url = models.CharField(max_length=40, db_index=True)
     submitter = models.ForeignKey('submitter.Submitter')
     category = models.ManyToManyField('category.Category')
 
