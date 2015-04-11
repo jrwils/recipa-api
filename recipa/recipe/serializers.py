@@ -1,11 +1,18 @@
 from rest_framework import serializers
 from recipe.models import Recipe
+from submitter.serializers import SubmitterSerializer
 
 
 class RecipeSerializer(serializers.ModelSerializer):
-    # set up a Nested Relationship to display both submitter name and ID
-    # http://www.django-rest-framework.org/api-guide/relations/
-    submitter = serializers.StringRelatedField()
+    submitter = SubmitterSerializer()
 
     class Meta:
         model = Recipe
+        fields = ('recipeid',
+                  'title',
+                  'intro',
+                  'ingredients',
+                  'instructions',
+                  'endcomments',
+                  'url',
+                  'submitter')
