@@ -5,7 +5,8 @@ from recipe.serializers import RecipeSerializer
 
 
 @api_view()
-def get_recipe(request, recipe_id):
-    rec = Recipe.objects.get(recipeid=recipe_id)
+def get_recipe(request, **kwargs):
+    recipe_url = kwargs.get('recipe').strip()
+    rec = Recipe.objects.get(url=recipe_url)
     serializer = RecipeSerializer(rec, many=False)
     return Response(serializer.data)
