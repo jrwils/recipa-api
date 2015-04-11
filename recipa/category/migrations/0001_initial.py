@@ -13,8 +13,9 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Category',
             fields=[
-                ('categoryid', models.AutoField(serialize=False, db_column='categoryid', primary_key=True)),
+                ('categoryid', models.AutoField(primary_key=True, db_column='categoryid', serialize=False)),
                 ('categoryname', models.CharField(max_length=40)),
+                ('categoryurl', models.CharField(max_length=25)),
             ],
             options={
             },

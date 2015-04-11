@@ -37,7 +37,7 @@ class Migration(migrations.Migration):
                 ('submitterid', models.AutoField(primary_key=True, serialize=False)),
                 ('firstname', models.CharField(max_length=30)),
                 ('lastname', models.CharField(max_length=30)),
-                ('city', models.ForeignKey(to='submitter.City', db_column='cityid')),
+                ('city', models.ForeignKey(db_column='cityid', to='submitter.City')),
             ],
             options={
             },
@@ -46,7 +46,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='city',
             name='state',
-            field=models.ForeignKey(to='submitter.State', db_column='stateid'),
+            field=models.ForeignKey(db_column='stateid', to='submitter.State'),
             preserve_default=True,
         ),
     ]
