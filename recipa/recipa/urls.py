@@ -8,6 +8,5 @@ urlpatterns = patterns('',
     # url(r'^blog/', include('blog.urls')),
 
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     url(r'^recipe/(?P<recipe>[-\w]+)/$', recipe_views.get_recipe, name='get_recipe'),
 )
