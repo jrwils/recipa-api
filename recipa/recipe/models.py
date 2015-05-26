@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 
 class Recipe(models.Model):
@@ -9,7 +10,7 @@ class Recipe(models.Model):
     instructions = models.TextField()
     endcomments = models.TextField(blank=True)
     url = models.CharField(max_length=40, db_index=True)
-    submitter = models.ForeignKey('submitter.Submitter')
+    submitter = models.ForeignKey(User)
     category = models.ManyToManyField('category.Category')
 
     def __str__(self):
