@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 
 class State(models.Model):
@@ -19,11 +20,10 @@ class City(models.Model):
         return self.cityname
 
 
-class Submitter(models.Model):
-    submitterid = models.AutoField(primary_key=True)
-    firstname = models.CharField(max_length=30)
-    lastname = models.CharField(max_length=30)
+class UserProfile(models.Model):
+    profileid = models.AutoField(primary_key=True, db_column='profileid')
+    userid = models.ForeignKey(User, db_column='userid')
     city = models.ForeignKey('City', db_column='cityid')
 
     def __str__(self):
-        return self.firstname + ' ' + self.lastname
+        return self.profileid
