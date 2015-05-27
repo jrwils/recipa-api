@@ -6,7 +6,7 @@ from recipe.models import Recipe
 
 
 class RecipeResource(ModelResource):
-    category = fields.ForeignKey(CategoryResource, 'category')
+    category = fields.ManyToManyField(CategoryResource, 'category')
 
     class Meta:
         queryset = Recipe.objects.all()
