@@ -1,4 +1,5 @@
-from tastypie.authorization import DjangoAuthorization
+from tastypie.authorization import Authorization
+from tastypie.authentication import Authentication
 from tastypie.resources import ModelResource
 from tastypie import fields
 from category.models import Category
@@ -11,4 +12,6 @@ class CategoryResource(ModelResource):
     class Meta:
         queryset = Category.objects.all()
         resource_name = 'category'
-        authorization = DjangoAuthorization()
+        # these should be replaced when sent to prod; only for testing
+        authentication = Authentication()
+        authorization = Authorization()
