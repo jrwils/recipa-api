@@ -7,4 +7,4 @@ class RecipaAuthentication(SessionAuthentication):
     def is_authenticated(self, request, **kwargs):
         if request.method == 'GET':
             return True
-        return super(RecipaAuthentication, self).is_authenticated(self, request, **kwargs)
+        return super(RecipaAuthentication, self).is_authenticated(request, **kwargs)
