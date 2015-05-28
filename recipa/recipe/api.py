@@ -6,6 +6,8 @@ from recipe.models import Recipe
 
 
 class RecipeResource(ModelResource):
+    categories = fields.ToManyField('category.api.CategoryResource', attribute='category', null=True)
+
     class Meta:
         queryset = Recipe.objects.all()
         resource_name = 'recipe'
